@@ -18,6 +18,7 @@ import {
 import { Select } from 'src/ui/select';
 import { RadioGroup } from 'src/ui/radio-group';
 import { Separator } from 'src/ui/separator';
+import { Text } from 'src/ui/text';
 
 type ArticleParamsFormProps = {
 	articleState: ArticleStateType;
@@ -67,6 +68,10 @@ export const ArticleParamsForm = ({
 					className={styles.form}
 					onSubmit={handleSubmit}
 					onReset={handleReset}>
+					<Text as='h2' size={31} weight={800} uppercase={false}>
+						Задайте параметры
+					</Text>
+
 					<Select
 						selected={formState.fontFamilyOption}
 						options={fontFamilyOptions}
@@ -98,8 +103,7 @@ export const ArticleParamsForm = ({
 						title='цвет фона'
 					/>
 
-					<RadioGroup
-						name='contentWidth'
+					<Select
 						selected={formState.contentWidth}
 						options={contentWidthArr}
 						onChange={handleFieldChange('contentWidth')}
